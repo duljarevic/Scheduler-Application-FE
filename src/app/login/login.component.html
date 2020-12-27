@@ -1,0 +1,37 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  <app-home></app-home>
+</div>
+
+<ng-template #loggedOut>
+  <div class="row col-sm-6" style="max-width:350px;">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+        GREŠKA: {{errorMessage}}
+      </div>
+      <div class="form-group">
+        <label for="username">Korisničko ime</label>
+        <input type="text" id="username" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required"><span style="color: #FF1C19">Korisničko ime je obavezno polje</span></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Lozinka</label>
+        <input type="password" id="password"  class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+          required minlength="6" />
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required"><span style="color: #FF1C19">Lozinka je obavezno polje</span></div>
+          <div *ngIf="password.errors.minlength"><span style="color: #FF1C19">Lozinka mora sadžati minimum 6 karaktera</span></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary">Prijava</button>
+      </div>
+    </form>
+    <hr />
+    <strong><span style="color: #FF1C19">Nemate korisnički nalog?</span></strong>
+    <p></p>
+    <a href="signup" class="btn btn-success" id="reg">Registracija</a>
+  </div>
+</ng-template>

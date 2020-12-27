@@ -1,0 +1,9 @@
+button, #reg {
+  background-color: lightslategrey;
+  border: #111111;
+}
+
+#reg {
+  background-color: dimgrey;
+  border: #111111;
+}
