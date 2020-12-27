@@ -3,27 +3,20 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#"><img id="assecoLogo" src="/assets/pictures/logo.png"></a>
     </div>
-    <ul class="nav navbar-nav" routerLinkActive="active">
-      <li class="nav-item"><a class="nav-link" routerLink="home">Početna strana</a></li>
+    <ul class="nav navbar-nav" routerLinkActive="active" navbar-right>
+      <li class="nav-item"><a class="nav-link" routerLink="home">Home page</a></li>
       <li *ngIf="authority === 'user'" class="nav-item">
-        <a class="nav-link" routerLink="user">Pregled računa</a>
-      </li>
-      <li *ngIf="authority === 'admin'" class="nav-item">
-        <a class="nav-link" routerLink="admin">Stranica za admin panel</a>
-      </li>
-      <li *ngIf="authority === 'pm'" class="nav-item">
-        <a class="nav-link" routerLink="pm">PM Panel</a>
+        <a class="nav-link" routerLink="user">Overview tasks</a>
       </li>
       <li *ngIf="!authority" class="nav-item">
-        <a class="nav-link" routerLink="auth/login">Stranica za pijavu na sistem</a>
+        <a class="nav-link" routerLink="auth/login">Log in</a>
       </li>
-
     </ul>
     <ul class="nav navbar-nav navbar-right" routerLinkActive="active">
-      <li *ngIf="authority === 'admin' || authority === 'pm' || authority === 'user'" class="nav-item">
+      <li *ngIf="authority === 'admin' || authority === 'user'" class="nav-item">
         <a class="nav-link"><span class="glyphicon glyphicon-user"></span>&nbsp; {{username}}</a>
       </li>
-      <li *ngIf="authority === 'admin' || authority === 'pm' || authority === 'user'" class="nav-item">
+      <li *ngIf="authority === 'admin' || authority === 'user'" class="nav-item">
         <a class="nav-link" routerLink="Logout" (click)="logout()"><span class="glyphicon glyphicon-log-in"></span>&nbsp; Exit</a>
       </li>
     </ul>
