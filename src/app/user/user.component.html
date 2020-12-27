@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-10 ">
       <fieldset>
-        <legend>Pregled izdatih računa</legend>
+        <legend>Overview of tasks</legend>
       </fieldset>
     </div>
   </div>
@@ -11,11 +11,11 @@
     <div class="ui-g-12">
       <div class="card card-w-title">
         <p-tabView (onChange)="onTabChange($event)" id="tabView0">
-          <p-tabPanel [header]="'Preglded računa'" [selected]="tabIndex == 0"
+          <p-tabPanel [header]="'Task overview'" [selected]="tabIndex == 0"
                       *ngIf="tab000" id="tab000">
             <app-view-bills (billsEvent)="billsListEvent($event)"></app-view-bills>
           </p-tabPanel>
-          <p-tabPanel [header]="'Pregled detalja računa'" [selected]="tabIndex == 1"
+          <p-tabPanel [header]="'View task details'" [selected]="tabIndex == 1"
                       *ngIf="tab001" id="tab001">
             <app-detail-bill (billDetailEvent)="billDetailEvent($event)"></app-detail-bill>
           </p-tabPanel>

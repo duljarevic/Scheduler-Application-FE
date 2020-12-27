@@ -1,7 +1,7 @@
 <div class="custom-code-up"></div>
 
 <span class="custom-up-actions">
-  <button style="margin: 0%" id="btn-new-work-position-csc4290list" type="button" pButton (click)="create()" [pTooltip]="'Unos novog računa'" [label]="'Novi'"></button>
+  <button style="margin: 0%" id="btn-new-work-position-csc4290list" type="button" pButton (click)="create()" [pTooltip]="'Enter new account'" [label]="'New tsk'"></button>
 </span>
 
 <p-table #dt1 [value]="bills" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[5,10,15]"
@@ -11,7 +11,7 @@
   <ng-template pTemplate="caption">
     <div style="text-align: right">
       <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-      <input type="text" pInputText size="30" [placeholder]="'Pretraga po svim parametrima'"
+      <input type="text" pInputText size="30" [placeholder]="'Search by all parameters'"
              (keyup.enter)="dt1.filterGlobal($event.target.value, 'contains')" style="width:auto">
     </div>
   </ng-template>

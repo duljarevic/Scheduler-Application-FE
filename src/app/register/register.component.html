@@ -1,44 +1,44 @@
 <div *ngIf="isSignedUp; else signupForm" align="center">
-  Uspešno ste napravili vas nalog. Mozete se logovati!
+  You have successfully created your account. You can log in!
 </div>
 
 <ng-template #signupForm>
   <div class="row col-sm-6" style="max-width:350px; margin-top: 10%">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
-        <label for="name">Vaše ime</label>
+        <label for="name">Name and Surname</label>
         <input type="text" id="name" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" required />
         <div *ngIf="f.submitted && name.invalid">
-          <div *ngIf="name.errors.required"><span style="color: #FF1C19">Vaše ime je obavezno polje</span></div>
+          <div *ngIf="name.errors.required"><span style="color: #FF1C19">Name and Surname is a required field</span></div>
         </div>
       </div>
       <div class="form-group">
-        <label for="username">Korisničko ime</label>
+        <label for="username">Username</label>
         <input type="text" id="username" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
           required />
         <div *ngIf="f.submitted && username.invalid">
-          <div *ngIf="username.errors.required"><span style="color: #FF1C19">Korisničko ime je obavezno polje</span></div>
+          <div *ngIf="username.errors.required"><span style="color: #FF1C19">Username is a required field</span></div>
         </div>
       </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" id="email" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" required email />
         <div *ngIf="f.submitted && email.invalid">
-          <div *ngIf="email.errors.required"><span style="color: #FF1C19">Email je obavezno polje</span></div>
+          <div *ngIf="email.errors.required"><span style="color: #FF1C19">Email is a required field</span></div>
           <div *ngIf="email.errors.email"><span style="color: #FF1C19">Email mora biti validno uneta</span></div>
         </div>
       </div>
       <div class="form-group">
-        <label for="password">Lozinka</label>
+        <label for="password">Password</label>
         <input type="password" id="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
           required minlength="6" />
         <div *ngIf="f.submitted && password.invalid">
-          <div *ngIf="password.errors.required"><span style="color: #FF1C19">Lozinka je obavezno polje</span></div>
-          <div *ngIf="password.errors.minlength"><span style="color: #FF1C19">Lozinka mora sadžati minimu 6 karaktera</span></div>
+          <div *ngIf="password.errors.required"><span style="color: #FF1C19">Password is a required field</span></div>
+          <div *ngIf="password.errors.minlength"><span style="color: #FF1C19">The password must contain a minimum of 6 characters</span></div>
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary">Registracija</button>
+        <button class="btn btn-primary">Registration</button>
         <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
           GREŠKAČ: <br/>{{errorMessage}}
         </div>

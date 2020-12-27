@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   BASE_API_URL: '/api/',
   SHOW_CONSOLE_MSG: true,
-  PROJECT: 'RecIssBill',
+  PROJECT: 'SchedulerApplication',
   USE_CERTIFICATE: true,
   SAVE_DLG_ENABLED: false
 };
