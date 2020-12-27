@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
-import {Bills} from '../../model/bills';
+import {SchedulerTask} from '../../model/schedulerTask';
 import {Table} from 'primeng/table';
 import {BillsService} from '../../services/bills.service';
 import {InteractionObject} from '../../../shared/interaction-object';
@@ -8,23 +8,22 @@ import {BoInteractionService} from '../../core/bo-interaction.service';
 import {Subscription} from 'rxjs';
 
 @Component({
-  selector: 'app-view-bills',
-  templateUrl: './view-bills.component.html',
-  styleUrls: ['./view-bills.component.css']
+  selector: 'app-view-scheduler-task',
+  templateUrl: './view-scheduler-task.component.html',
+  styleUrls: ['./view-scheduler-task.component.css']
 })
-export class ViewBillsComponent implements OnInit, OnDestroy {
+export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
 
 
   @Output() billsEvent = new EventEmitter();
 
-  public bills: Bills[];
+  public bills: SchedulerTask[];
 
   public billId: number;
 
   @ViewChild('dt1') dataTable: Table;
 
   public displayDeleteDlg = false;
-
 
   public selectedObj: any;
   public selectedMode: string;
@@ -45,11 +44,9 @@ export class ViewBillsComponent implements OnInit, OnDestroy {
   tfDateFilterMap = {};
   booleanFilterMap = {};
 
-
   private subscription1: Subscription;
   private subscription2: Subscription;
   // private subscription3: Subscription;
-
 
   private cmpDomainName = 'view-bills';
 
@@ -75,30 +72,17 @@ export class ViewBillsComponent implements OnInit, OnDestroy {
         this.dataTable.reset();
       }
     );
-
-    // this.subscription3 = this._interactionService.boEdit$.subscribe(
-    //   r => {
-    //     console.log('SuBBBBBbbbbBBBbbbbBBBbbbBBBB ' + r.className);
-    //     if (r.className === this.cmpDomainName) {
-    //       this.selectedMode = r.actionType;
-    //       this.bills = r.object;
-    //       this.getBills();
-    //     }
-    //   }
-    // );
   }
 
   ngOnInit() {
     this.getBills();
   }
 
-
   getBills() {
     this._billsService.getBills().subscribe(billsRes =>
         this.bills = billsRes,
       error => this.errorMessage = <any>error);
   }
-
 
   create() {
     this.createCustom();
@@ -119,7 +103,7 @@ export class ViewBillsComponent implements OnInit, OnDestroy {
     this.displayDeleteDlg = false;
   }
 
-  showDeleteDlg(obj: Bills) {
+  showDeleteDlg(obj: SchedulerTask) {
     this.selectedObj = obj;
     this.billId = obj.id;
     this.displayDeleteDlg = true;
@@ -138,7 +122,7 @@ export class ViewBillsComponent implements OnInit, OnDestroy {
   }
 
 
-  view(obj: Bills) {
+  view(obj: SchedulerTask) {
     this.viewCustom(obj);
 
   }
@@ -157,7 +141,6 @@ export class ViewBillsComponent implements OnInit, OnDestroy {
 
 
   filterTable() {
-    debugger;
     let z1 = this.tfFilterMap;
     let z2 = this.dateFilterMap;
     let z3 = this.booleanFilterMap;
@@ -198,9 +181,5 @@ export class ViewBillsComponent implements OnInit, OnDestroy {
     if (this.subscription2) {
       this.subscription2.unsubscribe();
     }
-    // if (this.subscription3) {
-    //   this.subscription3.unsubscribe();
-    // }
   }
-
 }

@@ -13,11 +13,11 @@
         <p-tabView (onChange)="onTabChange($event)" id="tabView0">
           <p-tabPanel [header]="'Task overview'" [selected]="tabIndex == 0"
                       *ngIf="tab000" id="tab000">
-            <app-view-bills (billsEvent)="billsListEvent($event)"></app-view-bills>
+            <app-view-scheduler-task (billsEvent)="billsListEvent($event)"></app-view-scheduler-task>
           </p-tabPanel>
           <p-tabPanel [header]="'View task details'" [selected]="tabIndex == 1"
                       *ngIf="tab001" id="tab001">
-            <app-detail-bill (billDetailEvent)="billDetailEvent($event)"></app-detail-bill>
+            <app-detail-scheduler-task (billDetailEvent)="billDetailEvent($event)"></app-detail-scheduler-task>
           </p-tabPanel>
         </p-tabView>
       </div>
@@ -27,10 +27,21 @@
 
 <ng-template #loggedOut>
   <div align="center">
-    <img src="/assets/pictures/Asseco-logo.png" alt="">
+    <img style="width: 30%" src="/assets/pictures/logo.png" alt="">
   </div>
   <hr>
-  <div align="center"><h1>Aplikacija za evidedntiranje izdatih računa</h1></div>
+  <div align="center"><h1>Scheduler application</h1></div>
+  <footer class="section footer">
+    <div class="footer-bottom" align="center">
+      <div class="container">
+        <div class="col-md-12">
+          <br/>
+          <p>Dejan Uljarević</p>
+          <p>© Copyright 2020.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </ng-template>
 
 

@@ -15,7 +15,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ButtonModule} from 'primeng/button';
 import {ChipsModule} from 'primeng/chips';
 import {TabViewModule} from 'primeng/tabview';
-import {ViewBillsComponent} from './bills/view-bills/view-bills.component';
 import {TableModule} from 'primeng/table';
 import {BillsService} from './services/bills.service';
 import {SplitButtonModule} from 'primeng/splitbutton';
@@ -23,10 +22,11 @@ import {TooltipModule} from 'primeng/tooltip';
 import {DialogModule} from 'primeng/dialog';
 import {BoInteractionService} from './core/bo-interaction.service';
 import {TabControllerService} from './core/tab-controller.service';
-import {DetailBillComponent} from './bills/detail-bill/detail-bill.component';
+import {DetailSchedulerTaskComponent} from './bills/detail-scheduler-task/detail-bill.component';
 import {CalendarModule} from 'primeng/calendar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MessageService} from './services/message.service';
+import {ViewSchedulerTaskComponent} from './bills/view-scheduler-task/view-scheduler-task.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +37,8 @@ import {MessageService} from './services/message.service';
     HomeComponent,
     AdminComponent,
     PmComponent,
-    ViewBillsComponent,
-    DetailBillComponent
+    ViewSchedulerTaskComponent,
+    DetailSchedulerTaskComponent
   ],
   imports: [
     BrowserModule,

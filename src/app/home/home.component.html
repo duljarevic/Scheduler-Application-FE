@@ -1,12 +1,9 @@
 <div *ngIf="info.token; else loggedOut">
-
   <div class="container">
     <div class="row">
       <div class="col-md-10 ">
         <fieldset>
-
           <legend>User information</legend>
-
           <div class="ui-g-0 ui-md-6 ui-lg-4">
             <div class="ui-grid-col-6 app-form-label">
               <label for="name">Username</label>
@@ -15,7 +12,6 @@
               <input id="name" type="text" pInputText [(ngModel)]="info.username" placeholder="Username">
             </div>
           </div>
-
           <div class="ui-g-0 ui-md-6 ui-lg-4">
             <div class="ui-grid-col-6 app-form-label">
               <label for="username">User role</label>
@@ -29,14 +25,12 @@
     </div>
   </div>
 </div>
-
 <ng-template #loggedOut>
   <div align="center">
     <img style="width:30%" src="/assets/pictures/logo.png" alt="">
   </div>
   <hr>
   <div align="center"><h1>Scheduler Application</h1></div>
-
   <footer class="section footer">
     <div class="footer-bottom" align="center">
       <div class="container">
@@ -48,5 +42,4 @@
       </div>
     </div>
   </footer>
-
 </ng-template>

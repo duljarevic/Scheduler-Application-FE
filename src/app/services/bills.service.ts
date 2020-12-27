@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Bills} from '../model/bills';
+import {SchedulerTask} from '../model/schedulerTask';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ResponseWrapper} from '../core/response-wrapper';
 import {map, catchError, retry} from 'rxjs/operators';
@@ -18,12 +18,12 @@ const httpOptions = {
 })
 export class BillsService {
 
-  private billsUrl = 'http://localhost:9093/api/bills';
+  private billsUrl = 'http://localhost:9094/api/bills';
 
   constructor(private httpClient: HttpClient) {
   }
 
-  getBills(): Observable<Bills[]> {
+  getBills(): Observable<SchedulerTask[]> {
     return this.httpClient.get<ResponseWrapper>(this.billsUrl).pipe(
       map(rw => {
         return rw.data;
@@ -41,7 +41,7 @@ export class BillsService {
   }
 
 
-  getBill(id: number): Observable<Bills> {
+  getBill(id: number): Observable<SchedulerTask> {
     return this.httpClient.get<ResponseWrapper>(`${this.billsUrl}/${id}`).pipe(
       map(rw => {
         return this.processData(rw.data);
@@ -51,7 +51,7 @@ export class BillsService {
   }
 
 
-  create(bill: Bills): Observable<Bills> {
+  create(bill: SchedulerTask): Observable<SchedulerTask> {
     return this.httpClient
       .post<ResponseWrapper>(this.billsUrl, JSON.stringify(bill), httpOptions).pipe(
         map(rw => {

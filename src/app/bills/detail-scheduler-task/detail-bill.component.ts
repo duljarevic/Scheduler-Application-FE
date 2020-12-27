@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
-import {Bills} from '../../model/bills';
+import {SchedulerTask} from '../../model/schedulerTask';
 import {Subscription} from 'rxjs';
 import * as calendarTranslation from '../../core/calendar-translation';
 import {BoInteractionService} from '../../core/bo-interaction.service';
@@ -9,12 +9,12 @@ import {InteractionObject} from '../../../shared/interaction-object';
 import {MessageService} from '../../services/message.service';
 
 @Component({
-  selector: 'app-detail-bill',
-  templateUrl: './detail-bill.component.html'
+  selector: 'app-detail-scheduler-task',
+  templateUrl: './detail-scheduler-task.component.html'
 })
-export class DetailBillComponent implements OnInit, OnDestroy {
+export class DetailSchedulerTaskComponent implements OnInit, OnDestroy {
 
-  public bill: Bills;
+  public bill: SchedulerTask;
 
 
   @Output() billDetailEvent = new EventEmitter();
