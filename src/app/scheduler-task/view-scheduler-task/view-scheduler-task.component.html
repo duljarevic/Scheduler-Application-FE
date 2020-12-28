@@ -4,7 +4,7 @@
   <button style="margin: 0%" id="btn-new-work-position-csc4290list" type="button" pButton (click)="create()" [pTooltip]="'Enter new account'" [label]="'New tsk'"></button>
 </span>
 
-<p-table #dt1 [value]="bills" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[5,10,15]"
+<p-table #dt1 [value]="schedulerTasks" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[5,10,15]"
          [responsive]="true"
          [globalFilterFields]="['id','vrstaDobraUsluge','jedinicaMere','kolicina','poreskaOsnovica','sptopaPDV','iznosPDV','ukupnaNaknada']">
 
@@ -18,29 +18,17 @@
 
   <ng-template pTemplate="header">
     <tr>
-      <th style="width: 7%" [pSortableColumn]="'id'">{{'Broj računa'}}
+      <th style="width: 10%" [pSortableColumn]="'id'">{{'Broj računa'}}
         <p-sortIcon [field]="'id'"></p-sortIcon>
       </th>
-      <th style="width: 36%; text-align: center " [pSortableColumn]="'vrstaDobraUsluge'">{{'VRSTA dobara/usluga'}}
+      <th style="width: 27%; text-align: center " [pSortableColumn]="'vrstaDobraUsluge'">{{'VRSTA dobara/usluga'}}
         <p-sortIcon [field]="'vrstaDobraUsluge'"></p-sortIcon>
       </th>
-      <th style="width: 8%" [pSortableColumn]="'jedinicaMere'">{{'Jedinica mere'}}
+      <th style="width: 27%" [pSortableColumn]="'jedinicaMere'">{{'Jedinica mere'}}
         <p-sortIcon [field]="'jedinicaMere'"></p-sortIcon>
       </th>
-      <th style="width: 8%" [pSortableColumn]="'kolicina'">{{'Količine'}}
+      <th style="width: 27%" [pSortableColumn]="'kolicina'">{{'Količine'}}
         <p-sortIcon [field]="'kolicina'"></p-sortIcon>
-      </th>
-      <th style="width: 8%" [pSortableColumn]="'cena'">{{'Cena po jedninici'}}
-        <p-sortIcon [field]="'cena'"></p-sortIcon>
-      </th>
-      <th style="width: 8%" [pSortableColumn]="'poreskaOsnovica'">{{'Poreska osnovica'}}
-        <p-sortIcon [field]="'poreskaOsnovica'"></p-sortIcon>
-      </th>
-      <th style="width: 8%" [pSortableColumn]="'sptopaPDV'">{{'Stopa PDV'}}
-        <p-sortIcon [field]="'sptopaPDV'"></p-sortIcon>
-      </th>
-      <th style="width: 8%" [pSortableColumn]="'iznosPDV'">{{'Iznos PDV'}}
-        <p-sortIcon [field]="'iznosPDV'"></p-sortIcon>
       </th>
       <th rowspan="2" style="text-align: center" class="action-col-header">{{'Akcije'}}
         <!--<span><i class="fa pi-filter" aria-hidden="true" (click)="filterTable();"></i></span>-->
@@ -65,22 +53,6 @@
         <input style="width: 95%;" pInputText [(ngModel)]="tfFilterMap['kolicina']" type="text"
                (keyup.enter)="filterTable()">
       </th>
-      <th>
-        <input style="width: 95%;" pInputText [(ngModel)]="tfFilterMap['cena']" type="text"
-               (keyup.enter)="filterTable()">
-      </th>
-      <th>
-        <input style="width: 95%;" pInputText [(ngModel)]="tfFilterMap['poreskaOsnovica']" type="text"
-               (keyup.enter)="filterTable()">
-      </th>
-      <th>
-        <input style="width: 95%;" pInputText [(ngModel)]="tfFilterMap['sptopaPDV']" type="text"
-               (keyup.enter)="filterTable()">
-      </th>
-      <th>
-        <input style="width: 95%;" pInputText [(ngModel)]="tfFilterMap['iznosPDV']" type="text"
-               (keyup.enter)="filterTable()">
-      </th>
     </tr>
   </ng-template>
 
@@ -90,10 +62,6 @@
       <td><span class="ui-column-title">{{'Brsta dobara/usluga'}}</span>{{bill.vrstaDobraUsluge}}</td>
       <td><span class="ui-column-title">{{'Jedinica mere'}}</span>{{bill.jedinicaMere}}</td>
       <td><span class="ui-column-title">{{'Kolicina'}}</span>{{bill.kolicina}}</td>
-      <td><span class="ui-column-title">{{'Cena po jedinici'}}</span>{{bill.kolicina}}</td>
-      <td><span class="ui-column-title">{{'Poreska osnovica'}}</span>{{bill.poreskaOsnovica}}</td>
-      <td><span class="ui-column-title">{{'Stopa PDV'}}</span>{{bill.sptopaPDV}}</td>
-      <td><span class="ui-column-title">{{'iznosPDV'}}</span>{{bill.iznosPDV}}</td>
       <td class="action-col-cell"><span class="custom-row-actions">
         <button type="button" pButton  icon="pi pi-info" (click)="view(bill)"  [pTooltip]="'Pregled'"></button>
         <button id="deleteButton" type="button" pButton  icon="pi pi-times" (click)="showDeleteDlg(bill)"  [pTooltip]="'Brisanje'"></button>

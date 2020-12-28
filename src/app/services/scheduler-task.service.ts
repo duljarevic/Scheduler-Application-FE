@@ -5,8 +5,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ResponseWrapper} from '../core/response-wrapper';
 import {map, catchError, retry} from 'rxjs/operators';
 import Utils from '../core/utils';
-import {AuthLoginInfo} from '../auth/login-info';
-import {JwtResponse} from '../auth/jwt-response';
 
 
 const httpOptions = {
@@ -16,7 +14,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class BillsService {
+export class SchedulerTaskService {
 
   private billsUrl = 'http://localhost:9094/api/scheduler-task';
 
@@ -44,7 +42,7 @@ export class BillsService {
   getBill(id: number): Observable<SchedulerTask> {
     return this.httpClient.get<ResponseWrapper>(`${this.billsUrl}/${id}`).pipe(
       map(rw => {
-        return this.processData(rw.data);
+        return rw.data;
       }),
       catchError(this.handleError)
     );
@@ -55,7 +53,7 @@ export class BillsService {
     return this.httpClient
       .post<ResponseWrapper>(this.billsUrl, JSON.stringify(bill), httpOptions).pipe(
         map(rw => {
-          return this.processData(rw.data);
+          return rw.data;
         }),
         catchError(this.handleError)
       );
@@ -64,17 +62,6 @@ export class BillsService {
 
   private handleError(error: Response | any) {
     return Utils.handleError(error);
-  }
-
-
-  private processData(bills) {
-    if (bills.datumIzdavanjaRacuna) {
-      bills.datumIzdavanjaRacuna = new Date(bills.datumIzdavanjaRacuna);
-    }
-    if (bills.datumPrometaDobaraUsluga) {
-      bills.datumPrometaDobaraUsluga = new Date(bills.datumPrometaDobaraUsluga);
-    }
-    return bills;
   }
 
 }

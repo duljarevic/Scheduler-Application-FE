@@ -15,13 +15,13 @@ import {ButtonModule} from 'primeng/button';
 import {ChipsModule} from 'primeng/chips';
 import {TabViewModule} from 'primeng/tabview';
 import {TableModule} from 'primeng/table';
-import {BillsService} from './services/bills.service';
+import {SchedulerTaskService} from './services/scheduler-task.service';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {TooltipModule} from 'primeng/tooltip';
 import {DialogModule} from 'primeng/dialog';
 import {BoInteractionService} from './core/bo-interaction.service';
 import {TabControllerService} from './core/tab-controller.service';
-import {DetailSchedulerTaskComponent} from './scheduler-task/detail-scheduler-task/detail-bill.component';
+import {DetailSchedulerTaskComponent} from './scheduler-task/detail-scheduler-task/detail-scheduler-task.component';
 import {CalendarModule} from 'primeng/calendar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MessageService} from './services/message.service';
@@ -54,7 +54,7 @@ import {ViewSchedulerTaskComponent} from './scheduler-task/view-scheduler-task/v
     CalendarModule,
     InputTextareaModule
   ],
-  providers: [httpInterceptorProviders, BillsService, BoInteractionService, TabControllerService, MessageService],
+  providers: [httpInterceptorProviders, SchedulerTaskService, BoInteractionService, TabControllerService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

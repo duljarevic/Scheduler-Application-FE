@@ -4,7 +4,7 @@ import {Subscription} from 'rxjs';
 import * as calendarTranslation from '../../core/calendar-translation';
 import {BoInteractionService} from '../../core/bo-interaction.service';
 import {environment} from '../../../environments/environment';
-import {BillsService} from '../../services/bills.service';
+import {SchedulerTaskService} from '../../services/scheduler-task.service';
 import {InteractionObject} from '../../../shared/interaction-object';
 import {MessageService} from '../../services/message.service';
 
@@ -33,7 +33,7 @@ export class DetailSchedulerTaskComponent implements OnInit, OnDestroy {
   private subscription1: Subscription;
   protected formChangeSub: Subscription;
 
-  constructor(private _interactionService: BoInteractionService, private _billsService: BillsService,
+  constructor(private _interactionService: BoInteractionService, private _billsService: SchedulerTaskService,
               private _messageService: MessageService) {
     this.lang = calendarTranslation.sr;
 

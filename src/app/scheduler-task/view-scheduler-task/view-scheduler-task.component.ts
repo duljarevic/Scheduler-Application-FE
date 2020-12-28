@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit, Output, ViewChild, EventEmitter} from '@angular/core';
 import {SchedulerTask} from '../../model/schedulerTask';
 import {Table} from 'primeng/table';
-import {BillsService} from '../../services/bills.service';
+import {SchedulerTaskService} from '../../services/scheduler-task.service';
 import {InteractionObject} from '../../../shared/interaction-object';
 import {TabControllerService} from '../../core/tab-controller.service';
 import {BoInteractionService} from '../../core/bo-interaction.service';
@@ -17,7 +17,7 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
 
   @Output() billsEvent = new EventEmitter();
 
-  public bills: SchedulerTask[];
+  public schedulerTasks: SchedulerTask[];
 
   public billId: number;
 
@@ -50,14 +50,14 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
 
   private cmpDomainName = 'view-bills';
 
-  constructor(private _billsService: BillsService, private _tabControllerService: TabControllerService,
+  constructor(private _billsService: SchedulerTaskService, private _tabControllerService: TabControllerService,
               private _interactionService: BoInteractionService) {
 
     this.subscription1 = this._interactionService.boSaved$.subscribe(
       r => {
         if (r.className === this.cmpDomainName) {
           console.log('subscribeeeeeeeee saveeeee ');
-          this.bills = r.object;
+          this.schedulerTasks = r.object;
           this.getBills();
         }
       }
@@ -80,7 +80,7 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
 
   getBills() {
     this._billsService.getBills().subscribe(billsRes =>
-        this.bills = billsRes,
+        this.schedulerTasks = billsRes,
       error => this.errorMessage = <any>error);
   }
 

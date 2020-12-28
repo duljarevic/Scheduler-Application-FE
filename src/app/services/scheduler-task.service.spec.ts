@@ -1,15 +1,15 @@
 import {TestBed, inject} from '@angular/core/testing';
 
-import {BillsService} from './bills.service';
+import {SchedulerTaskService} from './scheduler-task.service';
 
 describe('BillsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [BillsService]
+      providers: [SchedulerTaskService]
     });
   });
 
-  it('should be created', inject([BillsService], (service: BillsService) => {
+  it('should be created', inject([SchedulerTaskService], (service: SchedulerTaskService) => {
     expect(service).toBeTruthy();
   }));
 });

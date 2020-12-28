@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailSchedulerTaskComponent } from './detail-bill.component';
+import { DetailSchedulerTaskComponent } from './detail-scheduler-task.component';
 
-describe('DetailBillComponent', () => {
+describe('DetailSchedulerTaskComponent', () => {
   let component: DetailSchedulerTaskComponent;
   let fixture: ComponentFixture<DetailSchedulerTaskComponent>;
 
