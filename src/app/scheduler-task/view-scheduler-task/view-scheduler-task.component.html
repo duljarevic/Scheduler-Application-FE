@@ -1,7 +1,7 @@
 <div class="custom-code-up"></div>
 
 <span class="custom-up-actions">
-  <button style="margin: 0%" id="btn-new-work-position-csc4290list" type="button" pButton (click)="create()" [pTooltip]="'Enter new account'" [label]="'New tsk'"></button>
+  <button style="margin: 0%" id="btn-new-work-position-csc4290list" type="button" pButton (click)="create()" [pTooltip]="'Enter new task'" [label]="'New tsk'"></button>
 </span>
 
 <p-table #dt1 [value]="schedulerTasks" [rows]="10" [paginator]="true" [rowsPerPageOptions]="[5,10,15]"
@@ -31,11 +31,8 @@
         <p-sortIcon [field]="'code'"></p-sortIcon>
       </th>
       <th rowspan="2" style="text-align: center" class="action-col-header">{{'Actions'}}
-        <!--<span><i class="fa pi-filter" aria-hidden="true" (click)="filterTable();"></i></span>-->
-        <!--<span><i class="fa fa-close" aria-hidden="true"></i></span>-->
       </th>
     </tr>
-
     <tr>
       <th>
         <input style="width: 95%;" pInputText [(ngModel)]="tfFilterMap['id']" type="text"
@@ -55,7 +52,6 @@
       </th>
     </tr>
   </ng-template>
-
   <ng-template pTemplate="body" let-bill>
     <tr>
       <td><span class="ui-column-title">{{'Number of task'}}</span>{{bill.id}}</td>
@@ -70,12 +66,11 @@
     </tr>
   </ng-template>
 </p-table>
-
-<p-dialog header="Brisanje računa" draggable="false" [draggable]="true" [resizable]="false" [(visible)]="displayDeleteDlg" [modal]="true"
+<p-dialog header="Delete task" draggable="false" [draggable]="true" [resizable]="false" [(visible)]="displayDeleteDlg" [modal]="true"
           appendTo="body">
-  <div>{{'Da li ste sigurni da zelite da obrišete račun prod rednim brojem - '}} {{billId}}<br/>
+  <div>{{'Are you sure you want to delete the task with an incremental number - '}} {{billId}}<br/>
     <button pButton type="button" id="btn-delete-form-role-csc3760list" (click)="delete()"
-            [label]="'Da'"></button>
-    <button pButton type="button" (click)="cancelDelete()" [label]="'Ne'"></button>
+            [label]="'Yes'"></button>
+    <button pButton type="button" (click)="cancelDelete()" [label]="'No'"></button>
   </div>
 </p-dialog>
