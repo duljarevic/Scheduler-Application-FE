@@ -99,16 +99,16 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
 
-  billsListEvent(obj) {
-    this.billsListEventCustom(obj);
+  schedulerTasksListEvent(obj) {
+    this.schedulerTasksListEventCustom(obj);
   }
 
-  billDetailEvent(obj) {
-    this.billsDetailEventCustom(obj);
+  schedulerTaskDetailEvent(obj) {
+    this.schedulerTasksDetailEventCustom(obj);
   }
 
 
-  billsDetailEventCustom(obj) {
+  schedulerTasksDetailEventCustom(obj) {
     this._tabControllerService.showTab001(false);
     this._tabControllerService.setTabIndex(0);
     setTimeout(() => {
@@ -116,7 +116,7 @@ export class UserComponent implements OnInit, OnDestroy {
     }, 0);
   }
 
-  billsListEventCustom(obj) {
+  schedulerTasksListEventCustom(obj) {
     this._tabControllerService.showTab001(true);
     this._tabControllerService.setTabIndex(1);
     setTimeout(() => {

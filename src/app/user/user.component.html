@@ -13,11 +13,11 @@
         <p-tabView (onChange)="onTabChange($event)" id="tabView0">
           <p-tabPanel [header]="'Task overview'" [selected]="tabIndex == 0"
                       *ngIf="tab000" id="tab000">
-            <app-view-scheduler-task (billsEvent)="billsListEvent($event)"></app-view-scheduler-task>
+            <app-view-scheduler-task (schedulerTasksEvent)="schedulerTasksListEvent($event)"></app-view-scheduler-task>
           </p-tabPanel>
           <p-tabPanel [header]="'View task details'" [selected]="tabIndex == 1"
                       *ngIf="tab001" id="tab001">
-            <app-detail-scheduler-task (billDetailEvent)="billDetailEvent($event)"></app-detail-scheduler-task>
+            <app-detail-scheduler-task (schedulerTaskDetailEvent)="schedulerTaskDetailEvent($event)"></app-detail-scheduler-task>
           </p-tabPanel>
         </p-tabView>
       </div>

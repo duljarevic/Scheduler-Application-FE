@@ -14,12 +14,12 @@ import {MessageService} from '../../services/message.service';
 })
 export class DetailSchedulerTaskComponent implements OnInit, OnDestroy {
 
-  public bill: SchedulerTask;
+  public schedulerTask: SchedulerTask;
 
 
-  @Output() billDetailEvent = new EventEmitter();
+  @Output() schedulerTaskDetailEvent = new EventEmitter();
 
-  @ViewChild('billDetail') form;
+  @ViewChild('schedulerTaskDetail') form;
 
   public mode: string;
   public active: boolean;
@@ -33,15 +33,15 @@ export class DetailSchedulerTaskComponent implements OnInit, OnDestroy {
   private subscription1: Subscription;
   protected formChangeSub: Subscription;
 
-  constructor(private _interactionService: BoInteractionService, private _billsService: SchedulerTaskService,
+  constructor(private _interactionService: BoInteractionService, private _schedulerTasksService: SchedulerTaskService,
               private _messageService: MessageService) {
     this.lang = calendarTranslation.sr;
 
     this.subscription1 = this._interactionService.boEdit$.subscribe(
       r => {
-        if (r.className === 'view-bills') {
+        if (r.className === 'view-scheduler-tasks') {
           console.log('subscribeeeeeeeee location ' + r);
-          this.bill = r.object;
+          this.schedulerTask = r.object;
           this.mode = r.actionType;
           this.refreshForm();
         }
@@ -53,15 +53,15 @@ export class DetailSchedulerTaskComponent implements OnInit, OnDestroy {
   }
 
 
-  saveBill() {
+  saveSchedulerTask() {
     if (this.mode === 'new') {
-      this._billsService.create(this.bill)
+      this._schedulerTasksService.create(this.schedulerTask)
         .subscribe(res => {
-            this.bill = res;
+            this.schedulerTask = res;
             this.mode = 'edit';
-            let io = new InteractionObject('save', this.bill, 'view-bills');
+            let io = new InteractionObject('save', this.schedulerTask, 'view-scheduler-tasks');
             // this._interactionService.setBoSaved(io);
-            this.billDetailEvent.emit(io);
+            this.schedulerTaskDetailEvent.emit(io);
             setTimeout(() => {
               this.formChanged = false;
             }, 500);
@@ -126,7 +126,6 @@ export class DetailSchedulerTaskComponent implements OnInit, OnDestroy {
     }
   }
 
-
   activateChangeTracking() {
     if (environment.SHOW_CONSOLE_MSG) {
       console.log('activateChangeTracking');
@@ -143,6 +142,4 @@ export class DetailSchedulerTaskComponent implements OnInit, OnDestroy {
         );
     }
   }
-
-
 }

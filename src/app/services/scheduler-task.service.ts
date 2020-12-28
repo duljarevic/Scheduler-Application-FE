@@ -16,13 +16,13 @@ const httpOptions = {
 })
 export class SchedulerTaskService {
 
-  private billsUrl = 'http://localhost:9094/api/scheduler-task';
+  private schedulerTasksUrl = 'http://localhost:9094/api/scheduler-task';
 
   constructor(private httpClient: HttpClient) {
   }
 
-  getBills(): Observable<SchedulerTask[]> {
-    return this.httpClient.get<ResponseWrapper>(this.billsUrl).pipe(
+  getSchedulerTasks(): Observable<SchedulerTask[]> {
+    return this.httpClient.get<ResponseWrapper>(this.schedulerTasksUrl).pipe(
       map(rw => {
         return rw.data;
       }),
@@ -32,15 +32,15 @@ export class SchedulerTaskService {
   }
 
   delete(id: number): Observable<{} | Object> {
-    const url = `${this.billsUrl}/${id}`;
+    const url = `${this.schedulerTasksUrl}/${id}`;
     return this.httpClient.delete(url).pipe(
       catchError(this.handleError)
     );
   }
 
 
-  getBill(id: number): Observable<SchedulerTask> {
-    return this.httpClient.get<ResponseWrapper>(`${this.billsUrl}/${id}`).pipe(
+  getSchedulerTask(id: number): Observable<SchedulerTask> {
+    return this.httpClient.get<ResponseWrapper>(`${this.schedulerTasksUrl}/${id}`).pipe(
       map(rw => {
         return rw.data;
       }),
@@ -49,9 +49,9 @@ export class SchedulerTaskService {
   }
 
 
-  create(bill: SchedulerTask): Observable<SchedulerTask> {
+  create(schedulerTask: SchedulerTask): Observable<SchedulerTask> {
     return this.httpClient
-      .post<ResponseWrapper>(this.billsUrl, JSON.stringify(bill), httpOptions).pipe(
+      .post<ResponseWrapper>(this.schedulerTasksUrl, JSON.stringify(schedulerTask), httpOptions).pipe(
         map(rw => {
           return rw.data;
         }),

@@ -2,7 +2,7 @@ import {TestBed, inject} from '@angular/core/testing';
 
 import {SchedulerTaskService} from './scheduler-task.service';
 
-describe('BillsService', () => {
+describe('SchedulerTasksService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [SchedulerTaskService]

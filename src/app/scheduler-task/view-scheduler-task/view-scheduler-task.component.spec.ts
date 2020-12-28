@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ViewSchedulerTaskComponent } from './view-scheduler-task.component';
 
-describe('ViewBillsComponent', () => {
+describe('ViewSchedulerTaskComponent', () => {
   let component: ViewSchedulerTaskComponent;
   let fixture: ComponentFixture<ViewSchedulerTaskComponent>;
 

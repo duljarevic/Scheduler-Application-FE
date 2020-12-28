@@ -15,11 +15,11 @@ import {Subscription} from 'rxjs';
 export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
 
 
-  @Output() billsEvent = new EventEmitter();
+  @Output() schedulerTasksEvent = new EventEmitter();
 
   public schedulerTasks: SchedulerTask[];
 
-  public billId: number;
+  public schedulerTaskId: number;
 
   @ViewChild('dt1') dataTable: Table;
 
@@ -44,9 +44,9 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
   private subscription2: Subscription;
   // private subscription3: Subscription;
 
-  private cmpDomainName = 'view-bills';
+  private cmpDomainName = 'view-scheduler-tasks';
 
-  constructor(private _billsService: SchedulerTaskService, private _tabControllerService: TabControllerService,
+  constructor(private _schedulerTasksService: SchedulerTaskService, private _tabControllerService: TabControllerService,
               private _interactionService: BoInteractionService) {
 
     this.subscription1 = this._interactionService.boSaved$.subscribe(
@@ -54,7 +54,7 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
         if (r.className === this.cmpDomainName) {
           console.log('subscribeeeeeeeee saveeeee ');
           this.schedulerTasks = r.object;
-          this.getBills();
+          this.getSchedulerTasks();
         }
       }
     );
@@ -62,8 +62,7 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
     this.subscription2 = this._interactionService.boDeleted$.subscribe(
       r => {
         if (r.className === this.cmpDomainName) {
-          console.log('subscribeeeeeeeee deleteeeee ');
-          this.getBills();
+          this.getSchedulerTasks();
         }
         this.dataTable.reset();
       }
@@ -71,12 +70,12 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getBills();
+    this.getSchedulerTasks();
   }
 
-  getBills() {
-    this._billsService.getBills().subscribe(billsRes =>
-        this.schedulerTasks = billsRes,
+  getSchedulerTasks() {
+    this._schedulerTasksService.getSchedulerTasks().subscribe(schedulerTasksRes =>
+        this.schedulerTasks = schedulerTasksRes,
       error => this.errorMessage = <any>error);
   }
 
@@ -87,8 +86,8 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
   createCustom() {
     this.selectedObj = {};
     this.selectedMode = 'new';
-    let io = new InteractionObject('new', this.selectedObj, 'view-bills');
-    this.billsEvent.emit(io);
+    let io = new InteractionObject('new', this.selectedObj, 'view-scheduler-tasks');
+    this.schedulerTasksEvent.emit(io);
   }
 
   delete() {
@@ -101,14 +100,14 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
 
   showDeleteDlg(obj: SchedulerTask) {
     this.selectedObj = obj;
-    this.billId = obj.id;
+    this.schedulerTaskId = obj.id;
     this.displayDeleteDlg = true;
   }
 
   deleteCustom() {
     this._tabControllerService.setTabIndex(0);
     this._tabControllerService.showTab001(false);
-    this._billsService.delete(this.selectedObj.id).subscribe(
+    this._schedulerTasksService.delete(this.selectedObj.id).subscribe(
       obj => {
         this.displayDeleteDlg = false;
         let io = new InteractionObject(this.selectedMode, this.selectedObj, this.cmpDomainName);
@@ -126,11 +125,11 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
   viewCustom(obj: any) {
     this.selectedObj = obj;
     this.selectedMode = 'view';
-    this._billsService.getBill(this.selectedObj.id).subscribe(
+    this._schedulerTasksService.getSchedulerTask(this.selectedObj.id).subscribe(
       obj => {
         this.selectedObj = obj;
         let io = new InteractionObject(this.selectedMode, this.selectedObj, this.cmpDomainName);
-        this.billsEvent.emit(io);
+        this.schedulerTasksEvent.emit(io);
       }
     );
   }
@@ -165,7 +164,7 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
           dt1.filters[key] = {value: z1[key], matchMode: 'contains'};
         }
       });
-      this.getBills();
+      this.getSchedulerTasks();
     }
 
   }

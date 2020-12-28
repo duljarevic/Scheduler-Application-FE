@@ -2,7 +2,6 @@
 <div *ngIf="active">
   <div class="ui-grid ui-grid-responsive ui-grid-pad">
     <div class="bs-panel">
-
         <div class="bs-square">
           <div class="ui-grid ui-grid-responsive ui-grid-pad" style="margin-bottom: 8px;">
             <label style="font-size:15px ;font-weight:bold ;color:#4d88c9  ">{{'Task information'}}</label>
@@ -14,7 +13,7 @@
                       <label for="name">Name</label>
                     </div>
                     <div class="ui-inputgroup">
-                      <input id="name" type="text" pInputText [(ngModel)]="bill.name" placeholder="Name">
+                      <input id="name" type="text" pInputText [(ngModel)]="schedulerTask.name" placeholder="Name">
                     </div>
                   </div>
                   <div class="ui-g-0 ui-md-6 ui-lg-4">
@@ -22,7 +21,7 @@
                       <label for="recurrency">Recurrency</label>
                     </div>
                     <div class="ui-inputgroup">
-                      <input id="recurrency" type="text" pInputText [(ngModel)]="bill.recurrency" placeholder="Recurrency">
+                      <input id="recurrency" type="text" pInputText [(ngModel)]="schedulerTask.recurrency" placeholder="Recurrency">
                     </div>
                   </div>
                 <div class="ui-g-0 ui-md-6 ui-lg-4">
@@ -30,7 +29,7 @@
                     <label for="code">Code</label>
                   </div>
                   <div class="ui-inputgroup">
-                    <input id="code" type="text" pInputText [(ngModel)]="bill.code" placeholder="Code">
+                    <input id="code" type="text" pInputText [(ngModel)]="schedulerTask.code" placeholder="Code">
                   </div>
                 </div>
               </div>
@@ -38,9 +37,8 @@
           </div>
         </div>
       <div class="custom-up-actions">
-          <button pButton type="button" [label]="'Sačuvaj'" (click)="saveBill()" [disabled]="(mode === 'view' ? true : false)"></button>
+          <button pButton type="button" [label]="'Save'" (click)="saveSchedulerTask()" [disabled]="(mode === 'view' ? true : false)"></button>
         </div>
-
     </div>
   </div>
 </div>
