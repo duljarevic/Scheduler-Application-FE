@@ -21,11 +21,11 @@ import {TooltipModule} from 'primeng/tooltip';
 import {DialogModule} from 'primeng/dialog';
 import {BoInteractionService} from './core/bo-interaction.service';
 import {TabControllerService} from './core/tab-controller.service';
-import {DetailSchedulerTaskComponent} from './bills/detail-scheduler-task/detail-bill.component';
+import {DetailSchedulerTaskComponent} from './scheduler-task/detail-scheduler-task/detail-bill.component';
 import {CalendarModule} from 'primeng/calendar';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MessageService} from './services/message.service';
-import {ViewSchedulerTaskComponent} from './bills/view-scheduler-task/view-scheduler-task.component';
+import {ViewSchedulerTaskComponent} from './scheduler-task/view-scheduler-task/view-scheduler-task.component';
 
 @NgModule({
   declarations: [

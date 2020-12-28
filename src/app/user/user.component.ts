@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from '../services/user.service';
 import {TokenStorageService} from '../auth/token-storage.service';
-import {environment} from '../../environments/environment.prod';
 import {TabControllerService} from '../core/tab-controller.service';
 import {BoInteractionService} from '../core/bo-interaction.service';
 import {Subscription} from 'rxjs';
@@ -67,7 +66,6 @@ export class UserComponent implements OnInit, OnDestroy {
         this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
       }
     );
-
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
