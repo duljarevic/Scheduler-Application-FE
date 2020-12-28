@@ -33,11 +33,7 @@ export class ViewSchedulerTaskComponent implements OnInit, OnDestroy {
     'id': null,
     'vrstaDobraUsluge': null,
     'jedinicaMere': null,
-    'kolicina': null,
-    'cena': null,
-    'poreskaOsnovica': null,
-    'sptopaPDV': null,
-    'iznosPDV': null
+    'kolicina': null
   };
 
   dateFilterMap = {};

@@ -5,204 +5,38 @@
 
         <div class="bs-square">
           <div class="ui-grid ui-grid-responsive ui-grid-pad" style="margin-bottom: 8px;">
-            <label style="font-size:15px ;font-weight:bold ;color:#4d88c9  ">{{'Podaci o izdavaocu'}}</label>
+            <label style="font-size:15px ;font-weight:bold ;color:#4d88c9  ">{{'Task information'}}</label>
             <div class="ui-g"><br/></div>
             <div>
               <div class="ui-g">
-                <div class="ui-g-12 ui-md-4 ui-lg-5">
-                  <div class="ui-grid-col-7 app-form-label">
-                    <label>{{'Naziv i adresa izdavaoca'}}</label>
+                  <div class="ui-g-0 ui-md-6 ui-lg-4">
+                    <div class="ui-grid-col-4 app-form-label">
+                      <label for="name">Name</label>
+                    </div>
+                    <div class="ui-inputgroup">
+                      <input id="name" type="text" pInputText [(ngModel)]="bill.name" placeholder="Name">
+                    </div>
+                  </div>
+                  <div class="ui-g-0 ui-md-6 ui-lg-4">
+                    <div class="ui-grid-col-4 app-form-label">
+                      <label for="recurrency">Recurrency</label>
+                    </div>
+                    <div class="ui-inputgroup">
+                      <input id="recurrency" type="text" pInputText [(ngModel)]="bill.recurrency" placeholder="Recurrency">
+                    </div>
+                  </div>
+                <div class="ui-g-0 ui-md-6 ui-lg-4">
+                  <div class="ui-grid-col-4 app-form-label">
+                    <label for="code">Code</label>
                   </div>
                   <div class="ui-inputgroup">
-                    <input id="nazivIzdavaoca" type="text" pInputText [(ngModel)]="bill.nazivIzdavaoca"
-                           placeholder="Naziv izdavaoca" [disabled]="(mode === 'view' ? true : false)">
-                  </div>
-                </div>
-                <span style="width: 250px;">
-        <div class="ui-g-12 ui-md-7 ui-lg-12">
-         <div class="ui-inputgroup">
-              <input id="adresaIzdavaoca" type="text" pInputText [(ngModel)]="bill.adresaIzdavaoca"
-                     placeholder="Adresa izdavaoca" [disabled]="(mode === 'view' ? true : false)">
-            </div>
-      </div>
-      </span>
-                <div class="ui-g-12 ui-md-3 ui-lg-4">
-                  <div class="ui-grid-col-4 app-form-label">
-                    <label>{{'Pib izdavaoca'}}</label>
-                  </div>
-                  <div class="ui-grid-col-8 app-form-field">
-                    <div class="ui-inputgroup">
-                      <input id="pibIzdavaoca" type="text" pInputText [(ngModel)]="bill.pibIzdavaoca"
-                             placeholder="Pib izdavaoca" [disabled]="(mode === 'view' ? true : false)">
-                    </div>
-                  </div>
-                </div>
-                <div class="ui-g-12 ui-md-4 ui-lg-5">
-                  <div class="ui-grid-col-7 app-form-label">
-                    <label>{{'Tekuči račun'}}</label>
-                  </div>
-                  <div class="ui-grid-col-5 app-form-field">
-                    <div class="ui-inputgroup">
-                      <input id="tekuciRacun" type="text" pInputText [(ngModel)]="bill.tekuciRacun"
-                             placeholder="Tekuči račun" [disabled]="(mode === 'view' ? true : false)">
-                    </div>
+                    <input id="code" type="text" pInputText [(ngModel)]="bill.code" placeholder="Code">
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <hr>
-        <div class="bs-square">
-          <div class="ui-grid ui-grid-responsive ui-grid-pad" style="margin-bottom: 8px;">
-            <label style="font-size:15px ;font-weight:bold ;color:#4d88c9  ">{{'Podaci o primaocu'}}</label>
-            <div class="ui-g"><br/></div>
-            <div>
-              <div class="ui-g">
-                <div class="ui-g-12 ui-md-4 ui-lg-5">
-                  <div class="ui-grid-col-7 app-form-label">
-                    <label>{{'Naziv i adresa primaoca'}}</label>
-                  </div>
-                  <div class="ui-inputgroup">
-                    <input id="nazivPrimaoca" type="text" pInputText [(ngModel)]="bill.nazivPrimaoca"
-                           placeholder="Naziv primaoca" [disabled]="(mode === 'view' ? true : false)">
-                  </div>
-                </div>
-                <span style="width: 250px;">
-        <div class="ui-g-12 ui-md-7 ui-lg-12">
-         <div class="ui-inputgroup">
-              <input id="adresaPrimaoca" type="text" pInputText [(ngModel)]="bill.adresaPrimaoca"
-                     placeholder="Adresa primaoca" [disabled]="(mode === 'view' ? true : false)">
-            </div>
-           </div>
-          </span>
-                <div class="ui-g-12 ui-md-3 ui-lg-4">
-                  <div class="ui-grid-col-4 app-form-label">
-                    <label>{{'Pib primaoca'}}</label>
-                  </div>
-                  <div class="ui-grid-col-8 app-form-field">
-                    <div class="ui-inputgroup">
-                      <input id="pibPrimaoca" type="text" pInputText [(ngModel)]="bill.pibPrimaoca"
-                             placeholder="Pib primaoca" [disabled]="(mode === 'view' ? true : false)">
-                    </div>
-                  </div>
-                </div>
-                <div class="ui-g-12 ui-md-4 ui-lg-5">
-                  <div class="ui-grid-col-7 app-form-label">
-                    <label>{{'Tekuči račun'}}</label>
-                  </div>
-                  <div class="ui-grid-col-5 app-form-field">
-                    <div class="ui-inputgroup">
-                      <input id="tekuciRacunPrimaoca" type="text" pInputText [(ngModel)]="bill.tekuciRacunPrimaoca"
-                             placeholder="Tekuči račun" [disabled]="(mode === 'view' ? true : false)">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-        <div class="bs-square">
-          <div class="ui-grid ui-grid-responsive ui-grid-pad" style="margin-bottom: 8px;">
-            <div class="ui-g"><br/></div>
-            <div>
-              <div class="ui-g">
-                <div class="ui-g-12 ui-md-4 ui-lg-5">
-                  <div class="ui-grid-col-7 app-form-label">
-                    <label>{{'Mesto i datum izdavanja računa'}}</label>
-                  </div>
-                  <div class="ui-inputgroup">
-                    <input id="mestoIzdavanjaRacuna" type="text" pInputText [(ngModel)]="bill.mestoIzdavanjaRacuna"
-                           placeholder="Mesto izdavanja računa" [disabled]="(mode === 'view' ? true : false)">
-                  </div>
-                </div>
-                <span style="width: 250px;">
-        <div class="ui-g-12 ui-md-7 ui-lg-12">
-         <div class="ui-inputgroup">
-           <p-calendar id="datumIzdavanjaRacuna" [(ngModel)]="bill.datumIzdavanjaRacuna" #datumIzdavanjaRacuna="ngModel"
-                       dateFormat="dd.mm.yy" name="datumIzdavanjaRacuna"
-                       [monthNavigator]="true" [yearNavigator]="true"
-                       [locale]="lang" [disabled]="(mode === 'view' ? true : false)"></p-calendar>
-            </div>
-           </div>
-          </span>
-                <div class="ui-g-12 ui-md-3 ui-lg-4">
-                  <div class="ui-grid-col-4 app-form-label">
-                    <label>{{'Datum prometa dobara i usluga'}}</label>
-                  </div>
-                  <div class="ui-grid-col-8 app-form-field">
-                    <div class="ui-inputgroup">
-                      <p-calendar id="datumPrometaDobaraUsluga" [(ngModel)]="bill.datumPrometaDobaraUsluga"
-                                  #datumPrometaDobaraUsluga="ngModel" dateFormat="dd.mm.yy"
-                                  name="datumPrometaDobaraUsluga"
-                                  [monthNavigator]="true" [yearNavigator]="true"
-                                  [locale]="lang" [disabled]="(mode === 'view' ? true : false)"></p-calendar>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr>
-
-
-      <p-table>
-
-        <ng-template pTemplate="header">
-
-          <tr>
-            <th style="width: 36%; text-align: center">{{'VRSTA dobara/usluga'}}</th>
-            <th style="width: 8%">{{'Jedinica mere'}}</th>
-            <th style="width: 8%">{{'Količine'}}</th>
-            <th style="width: 8%">{{'Cena po jedinici mere'}}</th>
-            <th style="width: 8%">{{'Poreska osnovica'}}</th>
-            <th style="width: 8%">{{'Stopa PDV'}}</th>
-            <th style="width: 8%">{{'Iznos PDV'}}</th>
-          </tr>
-          <tr>
-            <th>
-              <input style="width: 95%;" pInputText [(ngModel)]="bill.vrstaDobraUsluge" type="text" [disabled]="(mode === 'view' ? true : false)">
-            </th>
-            <th>
-              <input style="width: 95%;" pInputText [(ngModel)]="bill.jedinicaMere" type="text" [disabled]="(mode === 'view' ? true : false)">
-            </th>
-            <th>
-              <input style="width: 95%;" pInputText [(ngModel)]="bill.kolicina" type="text" [disabled]="(mode === 'view' ? true : false)">
-            </th>
-            <th>
-              <input style="width: 95%;" pInputText [(ngModel)]="bill.cena" type="text" [disabled]="(mode === 'view' ? true : false)">
-            </th>
-            <th>
-              <input style="width: 95%;" pInputText [(ngModel)]="bill.poreskaOsnovica" type="text" [disabled]="(mode === 'view' ? true : false)">
-            </th>
-            <th>
-              <input style="width: 95%;" pInputText [(ngModel)]="bill.sptopaPDV" type="text" [disabled]="(mode === 'view' ? true : false)">
-            </th>
-            <th>
-              <input style="width: 95%;" pInputText [(ngModel)]="bill.iznosPDV" type="text" [disabled]="(mode === 'view' ? true : false)">
-            </th>
-          </tr>
-        </ng-template>
-      </p-table>
-
-        <hr>
-
-        <div class="ui-g-12 ui-md-3 ui-lg-12">
-          <div class="ui-grid-col-4 app-form-label">
-            <label>{{'Napomena o poreskom oslobodjenju'}}</label>
-          </div>
-          <div class="ui-grid-col-10 app-form-field">
-            <div class="ui-inputgroup">
-            <textarea [rows]="3" [cols]="200" pInputTextarea [(ngModel)]="bill.napomenaOPoreskomOslobodjenju"
-                      placeholder="Napomena o poreskom oslobodjenju" [disabled]="(mode === 'view' ? true : false)"></textarea>
-            </div>
-          </div>
-        </div>
-
-<hr>
       <div class="custom-up-actions">
           <button pButton type="button" [label]="'Sačuvaj'" (click)="saveBill()" [disabled]="(mode === 'view' ? true : false)"></button>
         </div>
