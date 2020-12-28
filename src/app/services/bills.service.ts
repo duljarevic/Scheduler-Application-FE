@@ -18,7 +18,7 @@ const httpOptions = {
 })
 export class BillsService {
 
-  private billsUrl = 'http://localhost:9094/api/bills';
+  private billsUrl = 'http://localhost:9094/api/scheduler-task';
 
   constructor(private httpClient: HttpClient) {
   }
